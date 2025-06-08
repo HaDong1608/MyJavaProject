@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+
+<h:body>
+  <h2>新規登録ページ</h2>
+  <h:form>
+    ID：<h:inputText value="#{registerBean.id}" required="true" />
+    <h:message for="id" styleClass="error-message" /><br/>
+
+    パスワード：<h:inputSecret value="#{registerBean.password}" required="true" />
+    <h:message for="password" styleClass="error-message" /><br/>
+
+    パスワード（確認用）：<h:inputSecret value="#{registerBean.confirmPassword}" required="true" />
+    <h:message for="confirmPassword" styleClass="error-message" /><br/>
+
+    ロール：
+    <h:selectOneRadio value="#{registerBean.role}">
+      <f:selectItem itemLabel="ユーザー" itemValue="user" />
+      <f:selectItem itemLabel="管理者" itemValue="admin" />
+    </h:selectOneRadio>
+    <h:message for="role" styleClass="error-message" /><br/>
+
+    <h:commandButton value="登録" action="#{registerBean.register}" /><br/>
+    <h:outputText value="#{registerBean.errorMsg}" styleClass="error-message" rendered="#{not empty registerBean.errorMsg}" /><br/>
+
+    <h:link value="ログインページへ" outcome="login.xhtml" />
+</h:form>
+</h:body>
+</html>

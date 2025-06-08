@@ -1,0 +1,6 @@
+@charset "UTF-8";
+/* error.css */
+.error {
+  color: red;
+  font-weight: bold;
+}
